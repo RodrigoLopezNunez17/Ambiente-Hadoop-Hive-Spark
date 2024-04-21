@@ -66,3 +66,16 @@ sudo docker exec -it mongodb bash    # Se entra en el contenedor.
 
 mongo    # Se inicia el MongoDB shell.
 ```
+
+
+## 4) Spark.
+Con el archivo "docker-compose-hdfs-hive-spark.yml" se levantan dos contenedores (spark-master y spark-worker-1).
+```
+sudo docker-compose -f docker-compose-hdfs-hive-spark up -d    # Se levantan los contenedores.
+
+
+sudo docker exec -it spark-master bash    # Se entra en el contenedor "spark-master".
+
+
+/spark/bin/pyspark --master spark://spark-master:7077    # Se inica PySpark
+```
