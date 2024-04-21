@@ -48,12 +48,21 @@ hive       # Entramos a nuestro entorno Hive.
 ```
 En este caso, el código para crear las tablas se incrustaron en el archivo "Tablas.hql".
 
-## 3) MongoDB
-El siguiente paso es guardar nuestras tablas en una base de datos, en este caso se usará MongoDB, una base de datos NoSQL, document-based. Con el archivo "docker-compose-hdfs-hive-mongo" se levantan varios contenedores con distintas bases de datos NoSQL.
+## 3) MongoDB.
+Ahora que ya se tiene hace falta un lugar dónde guardar las tablas previamente creadas. En este caso se usará MongoDB:
 ```
-sudo docker-compose -f docker-compose-hdfs-hive-mongo up -d
+sudo docker pull mongo    # Descargar la imagen de MongoDB
 
 
-sudo docker ps -a    # Se imprimen los distintos contenedores.
+sudo mkdir -p /mongodata    # Se crea un directorio que servirá como volumen de nuestro contenedor.
+
+
+sudo docker run -it -v mongodata:/data/db -p 27017:27017 --name mongodb -d mongo
+# Se levanta y configura un contenedor de MongoDB en el puerto 27017 (default) con el nombre mongodb.
+
+
+sudo docker exec -it mongodb bash    # Se entra en el contenedor.
+
+
+mongo    # Se inicia el MongoDB shell.
 ```
-
