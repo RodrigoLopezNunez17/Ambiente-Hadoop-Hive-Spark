@@ -47,3 +47,13 @@ sudo docker-compose -f docker-compose-hdfs-hive.yml up -d    # Entramos al conte
 hive       # Entramos a nuestro entorno Hive.
 ```
 En este caso, el código para crear las tablas se incrustaron en el archivo "Tablas.hql".
+
+## 3) MongoDB
+El siguiente paso es guardar nuestras tablas en una base de datos, en este caso se usará MongoDB, una base de datos NoSQL, document-based. Con el archivo "docker-compose-hdfs-hive-mongo" se levantan varios contenedores con distintas bases de datos NoSQL.
+```
+sudo docker-compose -f docker-compose-hdfs-hive-mongo up -d
+
+
+sudo docker ps -a    # Se imprimen los distintos contenedores.
+```
+
