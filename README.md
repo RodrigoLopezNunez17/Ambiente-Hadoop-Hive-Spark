@@ -1,4 +1,4 @@
-# Ambiente Hadoop-Hive
+# Ambiente Hadoop-Hive-Spark
 Se creará un ambiente en Docker dónde se utilizarán con herramientas utilizadas en Big Data.
 
 ## 1) Crear un ambiente Hadoop con un Master y un Slave.
